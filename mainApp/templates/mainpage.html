@@ -34,85 +34,63 @@
             <i class="fas fa-user"></i>
         </div>
     </header>
-
-    <div id="root"></div>
     
-    <section class="chart">
-        <!-- Center Chart -->
-        {% block content %}
-        <input type="button" id="writepostBtn" value="게시물 작성"></input>
-        <div class="centerChart">
-            <div class="post">
-                <div class="postTop">
-                    <span id="postNickname">haha ha moo</span>
-                    <i class="fas fa-ellipsis-h"></i>
-                </div>
-                <img class="post1" src="../static/images/moo.jpg">
-                <div class="postBottom">
-                    <div class="postIcon">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-thumbs-up"></i>
+    <div class="main">
+        <section class="chart">
+            <div class="postbox">
+                {% block content %}
+                <input type="button" id="writepostBtn" value="게시물 작성"></input>
+                <div class="centerChart">
+                    <div class="post">
+                        <div class="postTop">
+                            <span id="postNickname">haha ha moo</span>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                        <img class="post1" src="../static/images/moo.jpg">
+                        <div class="postBottom">
+                            <div class="postIcon">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-thumbs-up"></i>
+                            </div>
+                        </div>
+                        <div class="postInformation">
+                            <span id="postMoreView">더보기</span>
+                        </div>
                     </div>
                 </div>
-                <div class="postInformation">
-                    <span id="postMoreView">더보기</span>
-                </div>
+                {% endblock %}
             </div>
-
-            <!-- 게시물 작성 -->
-            <div class="writePost">
-                <p class="postform">게시물 작성</p>
-                <div class="title">
-                    <p class="title-txt">제목</p>
-                    <input type="text" id="titleId" placeholder="제목을 입력해 주세요">
-                </div>
-                <div class="writer">
-                    <p class="writer-txt">작성자</p>
-                    <input type="text" id="writerId" placeholder="이름을 입력해 주세요">
-                </div>
-                <div class="content">
-                    <p class="content-txt">내용</p>
-                    <textarea name="contentName" id="contentId" cols="30" rows="10"></textarea>
-                </div>
-                <p>
-                    <span>이미지 업로드:</span>
-                    <input type="file" id="selectFile" name="filename">
-                </p>
-                <input id="write" type="button" value="작성">
-            </div>
-        </div>
-        {% endblock %}
-
-        <!-- Right Chart -->
-        <ul class="rightChart">
-            <ul class="noticeBoard">
-                <span><i class="fas fa-clipboard"></i>전체 게시판</span>
-                <li id="a2">의료IT공학과</li>
-                <li id="a3">간호학과</li>
-                <li id="a4">의공학과</li>
-                <li id="a4">안녕</li>
-                <li id="a4">안녕</li>
+    
+            <ul class="rightChart">
+                <ul class="noticeBoard">
+                    <span><i class="fas fa-clipboard"></i>전체 게시판</span>
+                    <li id="a2">의료IT공학과</li>
+                    <li id="a3">간호학과</li>
+                    <li id="a4">의공학과</li>
+                    <li id="a4">안녕</li>
+                    <li id="a4">안녕</li>
+                </ul>
+    
+                <ul class="notice">
+                    <span><i class="fas fa-exclamation-triangle"></i>공지사항</span>
+                    <li id="n2">수강신청</li>
+                    <li id="n3">등록금 납부</li>
+                </ul>
+    
+                <ul class="topProject">
+                    <span><i class="fas fa-fire"></i>인기 프로젝트</span>
+                    <li id="hp1">의료IT 프로젝트</li>
+                    <li id="hp2">의료IT 프로젝트</li>
+                    <li id="hp3">의료IT 프로젝트</li>
+                </ul>
+    
+                <ul class="question">
+                    <span><i class="fas fa-question-circle"></i>질의응답</span>
+                    <li id="n2">불편사항</li>
+                </ul>
             </ul>
-
-            <ul class="notice">
-                <span><i class="fas fa-exclamation-triangle"></i>공지사항</span>
-                <li id="n2">수강신청</li>
-                <li id="n3">등록금 납부</li>
-            </ul>
-
-            <ul class="topProject">
-                <span><i class="fas fa-fire"></i>인기 프로젝트</span>
-                <li id="hp1">의료IT 프로젝트</li>
-                <li id="hp2">의료IT 프로젝트</li>
-                <li id="hp3">의료IT 프로젝트</li>
-            </ul>
-
-            <ul class="question">
-                <span><i class="fas fa-question-circle"></i>질의응답</span>
-                <li id="n2">불편사항</li>
-            </ul>
-        </ul>
-    </section>
+        </section>
+    </div>
 
     <!-- Floating Button -->
     <button class="btn_chat">

@@ -30,7 +30,7 @@ header{
     background-color: white;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 80px;
+    padding: 16px 180px;
     width: 100%;
     position: sticky;
     top: 0px;
@@ -106,22 +106,33 @@ header #login{
 }
 
 
+.main{
+    display: flex;
+    justify-content: center;
+}
+
 /* Chart Components */
 .chart{
     width: 70%;
     height: 100%;
     padding: 32px;
+    position: relative;
 }
 
 .rightChart{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20%;
     height: 100vh;
-    position: fixed;
-    top: 84px;
+    position: absolute;
+    top: 32px;
     right: 5%;
+}
+
+.rightChart.on{
+    position: fixed;
+    top: 89px;
+    right: 240px;
 }
 
 .rightChart i{
@@ -132,7 +143,6 @@ header #login{
 .centerChart{
     display: flex;
     flex-direction: column;
-    margin-left: 128px;
     width: auto;
     height: 100%;
 }
@@ -146,7 +156,7 @@ header #login{
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    height: 150px;
+    height: 130px;
     padding: 0 32px;
     margin-bottom: 8px;
 }
@@ -176,45 +186,12 @@ header #login{
     margin-bottom: 8px;
     background-color: white;
     border: 1px solid lightgray;
-    margin-left: 128px;
     font-weight: bold;
 }
 
 #writepostBtn:hover{
     color: white;
     background-color: #ff8a3d;
-}
-
-/* 게시물 작성 */
-.writePost{
-    display: none;
-    width: 100%;
-    height: 100%;
-}
-
-.writePost p{
-    margin-bottom: 4px;
-    font-weight: bold;
-}
-
-.writePost div{
-    margin-bottom: 8px;
-    width: 100%;
-    height: max-content;
-}
-
-.writePost .postform{
-    font-size: 32px;
-    font-weight: bold;
-    margin: 8px 0;
-}
-
-#titleId, #writerId, #contentId{
-    width: 600px;
-}
-
-#write{
-    width: 64px;
 }
 
 /* 게시물 */
@@ -369,17 +346,4 @@ header #login{
 
 @media screen and (max-width: 1001px){
     
-}
-
-@media screen and (max-width:900px){
-    .post{
-        width: 400px;
-        height: 400px;
-    }
-}
-
-@media screen and (max-width:715px){
-    .centerChart{
-        margin-left: 64px;
-    }
 }

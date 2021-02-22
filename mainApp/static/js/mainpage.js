@@ -8,21 +8,24 @@ const postChart = document.querySelectorAll('.post');
 const postMoreView = document.querySelector('#postMoreView');
 const postInformation = document.querySelector('.postInformation');
 const profile = document.querySelector('fa-user');
-
-const arr = [
-    "",
-    "",
-    "",
-    "",
-    "",
-]
+const scrollRightChart = document.querySelector('.rightChart');
 
 // Eventlistener
 chatButton.addEventListener('click', openChat);
 chatClose.addEventListener('click', closeChat);
 writePostButton.addEventListener('click', writePost);
 postMoreView.addEventListener('click', moreviewPost);
-profile.addEventListener('click', clickProfile);
+window.addEventListener('scroll', scrollFunc);
+
+// 스크롤 함수
+function scrollFunc() {
+    // console.log(pageYOffset);
+    if(pageYOffset >= 10){
+        scrollRightChart.classList.add('on');
+    }else{
+        scrollRightChart.classList.remove('on');
+    }
+}
 
 
 // Function
@@ -46,13 +49,11 @@ function writePost(){
             postChart[i].style.display="none";
         }
         writePostButton.value = "홈으로 이동";
-        writePostPage.style.display = "unset";
     }else{
         for(i=0; i<postChart.length; i++){
             postChart[i].style.display="unset";
         }
         writePostButton.value = "게시물 작성";
-        writePostPage.style.display = "none";
     }
 }
 
@@ -69,9 +70,4 @@ function moreviewPost(){
         postInformation.style.height = "32px";
         postMoreView.innerHTML = "더보기";
     }
-}
-
-// 개인 프로필 이동
-function clickProfile(){
-    
 }
