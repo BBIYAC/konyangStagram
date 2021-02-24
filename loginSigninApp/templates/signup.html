@@ -24,22 +24,24 @@
         </header>
 
         <!-- 본인인증 폼 -->
-        <form class="input_box" id="cfForm">
+        <div class="input_box" id="cfForm">
             <input type="text" placeholder="이름을 입력하세요." class="username">
             <input type="text" placeholder="전화번호를 입력하세요." id="userphone">
             <input type="submit" value="본인 인증하기" id="certification" >
+            <input type="text" id="hidden_type" value="certification" style="display: none;">
             <div id="cf_box">
                 <input type="text" placeholder="인증번호를 입력하세요." id="cf_num">
                 <div class="timer">3:00</div>
                 <a id="cf_btn">인증</a>
             </div>
             <div id="next">다음</div>
-        </form>
+        </div>
 
         <!-- 회원가입 폼 -->
-        <form class="input_box" id="signupForm">
-            <input type="text" placeholder="이름을 입력하세요." class="username">
-            <select id="usernum">
+        <form class="input_box" id="signupForm" method="POST" action="">
+            {% csrf_token %}
+            <input type="text" placeholder="이름을 입력하세요." class="username" name="username">
+            <select id="usernum" name="student_id">
                 <option value="none" hidden >학번을 선택하세요.</option>
                 <option value="21">21학번</option>
                 <option value="20">20학번</option>
@@ -50,7 +52,7 @@
                 <option value="15">15학번</option>
             </select>
             <i class="fas fa-sort-down" id="select_num"></i>
-            <select id="userdept" >
+            <select id="userdept" name="user_major">
                 <option value="none" hidden>학과를 선택하세요.</option>
                 <option value="의료IT공학과">의료IT공학과</option>
                 <option value="의공학과">의공학과</option>
@@ -60,9 +62,9 @@
                 <option value="의료신소재학과">의료신소재학과</option>
             </select>
             <i class="fas fa-sort-down" id="select_dept"></i>
-            <input type="text" placeholder="이메일을 입력하세요." id="useremail">
-            <input type="text" placeholder="아이디를 입력하세요." id="userid">
-            <input type="password" placeholder="비밀번호를 입력하세요." id="userpw">
+            <input type="text" placeholder="이메일을 입력하세요." id="useremail" name="user_email">
+            <input type="text" placeholder="아이디를 입력하세요." id="userid" name="user_id">
+            <input type="password" placeholder="비밀번호를 입력하세요." id="userpw" name="password">
             <input type="submit" value="회원가입" id="signup_btn" onclick="location.href = './signin.html'">
         </form>
     </section>

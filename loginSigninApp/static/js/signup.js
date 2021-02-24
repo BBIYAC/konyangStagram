@@ -14,6 +14,26 @@ certification.addEventListener('click',function(event){
     document.getElementById('certification').style.display = "none";
     document.getElementById('cf_box').style.display = "flex";
 
+    let username = document.querySelector('.username').value;
+    let userPhoneNumber =document.querySelector('#userphone').value;
+    let type = document.querySelector('#hidden_type').value;
+    console.log(`${username}  ${userPhoneNumber}  ${type}`);
+
+    // ajax(xhr)로 views.py에 데이터 전달 
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '', true);
+    var formData = new FormData();
+    formData.append('username',username);
+    formData.append('phone_number',userPhoneNumber);
+    formData.append('type',type);
+    xhr.send(formData);
+
+
+    xhr.onreadystatechange= (e)=>{
+        console.log(e)
+    }
+
+
     document.getElementById('cf_btn').addEventListener('click',function(){
         document.getElementById('cf_box').setAttribute('id','cf_success');
         document.getElementById('cf_success').innerHTML = '인증완료';

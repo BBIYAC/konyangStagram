@@ -38,27 +38,46 @@
     <div class="main">
         <section class="chart">
             <div class="postbox">
-                {% block content %}
-                <input type="button" id="writepostBtn" value="게시물 작성"></input>
+                <form method="GET" action="{% url 'mainApp:create-post' %}">
+                    <input type="submit" id="writepostBtn" value="게시물 작성">
+                </form>
                 <div class="centerChart">
+
+                    {% for post in posts %}
                     <div class="post">
                         <div class="postTop">
-                            <span id="postNickname">haha ha moo</span>
+                            <span id="postNickname">{{post.profile_id_id}}</span>
                             <i class="fas fa-ellipsis-h"></i>
                         </div>
-                        <img class="post1" src="../static/images/moo.jpg">
+                        {% for post_images in posts_images %}
+                        {% if post_images.post_id_id == post.id %}
+                        <img class="post1" src="/media/{{post_images.url}}" alt="/media/{{post_images.url}}">
+                        {% endif %}
+                        {% endfor %}
                         <div class="postBottom">
                             <div class="postIcon">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-thumbs-up"></i>
                             </div>
                         </div>
+                        <div>제목 : {{post.post_title}}</div><br>
+                        <div>{{post.post_contents}}</div>
                         <div class="postInformation">
                             <span id="postMoreView">더보기</span>
+                            <!-- <script>
+                                let moreviewText = "{{post.post_contents}}"
+                            </script> -->
                         </div>
                     </div>
+                    {% endfor %}
+
+
+
+
+
                 </div>
-                {% endblock %}
+                <button id="show-more-posts-button"  style="width: 600px; height:30px;">더보기</button>
+
             </div>
     
             <ul class="rightChart">
@@ -110,5 +129,6 @@
     </div>
 
     <script src="../static/js/mainpage.js"></script>
+    <script src="../static/js/mainAjax.js"></script>
 </body>
 </html>
